@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, ReactNode } from "react"
+import { siteConfig } from "@/config/site"
 
 export type Theme = "space" | "midnight" | "carbon" | "obsidian" | "minimal" | "arctic" | "ivory" | "rosegold"
 
@@ -11,7 +12,7 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: "space",
+  theme: siteConfig.defaultTheme as Theme,
   setTheme: () => {},
   isDark: true,
 })
@@ -19,7 +20,7 @@ const ThemeContext = createContext<ThemeContextType>({
 const darkThemes = ["space", "midnight", "carbon", "obsidian"]
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("space")
+  const [theme, setTheme] = useState<Theme>(siteConfig.defaultTheme as Theme)
 
   const themeClass: Record<Theme, string> = {
     space: "",

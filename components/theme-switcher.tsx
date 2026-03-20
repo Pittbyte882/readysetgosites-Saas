@@ -20,37 +20,43 @@ export function ThemeSwitcher() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-6 left-6 z-50">
+    <div className="fixed bottom-8 left-8 z-50">
       {isOpen && (
         <div
-          className="absolute bottom-16 left-0 rounded-2xl shadow-2xl p-5 w-64 mb-2"
+          className="absolute bottom-16 left-0 rounded-2xl shadow-2xl p-6 w-68 mb-3"
           style={{
-            background: isDark ? "rgba(10,6,24,0.95)" : "rgba(255,255,255,0.95)",
+            background: isDark ? "rgba(10,6,24,0.96)" : "rgba(255,255,255,0.96)",
             border: "1px solid var(--border)",
-            backdropFilter: "blur(20px)",
+            backdropFilter: "blur(24px)",
+            width: "272px",
           }}
         >
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-sans)" }}>
-              Theme
+          <div className="flex items-center justify-between mb-5">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-sans)" }}
+            >
+              Appearance
             </p>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               <Moon className="w-3 h-3" style={{ color: "var(--muted-foreground)" }} />
-              <span className="text-xs" style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-sans)" }}>/</span>
+              <span className="text-xs" style={{ color: "var(--muted-foreground)" }}>/</span>
               <Sun className="w-3 h-3" style={{ color: "var(--muted-foreground)" }} />
             </div>
           </div>
 
-          {/* Dark themes */}
-          <p className="text-xs uppercase tracking-wider mb-2" style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-sans)", fontSize: "10px" }}>
+          <p
+            className="text-xs uppercase tracking-wider mb-3"
+            style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-sans)", fontSize: "10px" }}
+          >
             Dark
           </p>
-          <div className="space-y-1 mb-4">
+          <div className="space-y-1.5 mb-5">
             {themes.filter(t => t.dark).map((t) => (
               <button
                 key={t.id}
                 onClick={() => { setTheme(t.id); setIsOpen(false) }}
-                className="w-full flex items-center gap-3 px-3 py-2 rounded-xl transition-all hover:opacity-80"
+                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:opacity-80"
                 style={{
                   background: theme === t.id ? "var(--muted)" : "transparent",
                   border: theme === t.id ? "1px solid var(--primary)" : "1px solid transparent",
@@ -61,23 +67,28 @@ export function ThemeSwitcher() {
                     <div key={i} className="w-4 h-4 rounded-full border border-black/10" style={{ background: c }} />
                   ))}
                 </div>
-                <span className="text-xs font-medium" style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}>
+                <span
+                  className="text-xs font-medium"
+                  style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}
+                >
                   {t.label}
                 </span>
               </button>
             ))}
           </div>
 
-          {/* Light themes */}
-          <p className="text-xs uppercase tracking-wider mb-2" style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-sans)", fontSize: "10px" }}>
+          <p
+            className="text-xs uppercase tracking-wider mb-3"
+            style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-sans)", fontSize: "10px" }}
+          >
             Light
           </p>
-          <div className="space-y-1">
+          <div className="space-y-1.5">
             {themes.filter(t => !t.dark).map((t) => (
               <button
                 key={t.id}
                 onClick={() => { setTheme(t.id); setIsOpen(false) }}
-                className="w-full flex items-center gap-3 px-3 py-2 rounded-xl transition-all hover:opacity-80"
+                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:opacity-80"
                 style={{
                   background: theme === t.id ? "var(--muted)" : "transparent",
                   border: theme === t.id ? "1px solid var(--primary)" : "1px solid transparent",
@@ -88,7 +99,10 @@ export function ThemeSwitcher() {
                     <div key={i} className="w-4 h-4 rounded-full border border-black/10" style={{ background: c }} />
                   ))}
                 </div>
-                <span className="text-xs font-medium" style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}>
+                <span
+                  className="text-xs font-medium"
+                  style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}
+                >
                   {t.label}
                 </span>
               </button>
@@ -99,15 +113,16 @@ export function ThemeSwitcher() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-3 rounded-full shadow-lg transition-all hover:opacity-90"
+        className="flex items-center gap-2.5 px-5 py-3 rounded-full shadow-lg transition-all hover:opacity-90 hover:scale-105"
         style={{
           background: "var(--primary)",
           color: "var(--primary-foreground)",
-          boxShadow: `0 0 20px var(--glow)`,
+          boxShadow: `0 0 24px var(--glow)`,
+          fontFamily: "var(--font-sans)",
         }}
       >
         <Palette className="w-4 h-4" />
-        <span className="text-sm font-semibold" style={{ fontFamily: "var(--font-sans)" }}>Theme</span>
+        <span className="text-sm font-semibold">Theme</span>
       </button>
     </div>
   )

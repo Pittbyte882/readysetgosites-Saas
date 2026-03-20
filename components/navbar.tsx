@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Menu, X, Zap } from "lucide-react"
 import { useTheme } from "@/lib/theme-context"
+import { siteConfig } from "@/config/site"
 
 const navLinks = [
   { href: "#features", label: "Features" },
@@ -27,14 +28,13 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
         background: isScrolled
-          ? isDark ? "rgba(3,1,10,0.85)" : "rgba(255,255,255,0.85)"
+          ? isDark ? "rgba(3,1,10,0.92)" : "rgba(255,255,255,0.92)"
           : "transparent",
-        backdropFilter: isScrolled ? "blur(20px)" : "none",
+        backdropFilter: isScrolled ? "blur(24px)" : "none",
         borderBottom: isScrolled ? "1px solid var(--border)" : "none",
       }}
     >
       <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Logo */}
         <a href="/" className="flex items-center gap-2.5">
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -46,11 +46,10 @@ export function Navbar() {
             className="text-xl font-bold tracking-tight"
             style={{ color: "var(--foreground)", fontFamily: "var(--font-display)" }}
           >
-            NEXUS
+            {siteConfig.name.toUpperCase()}
           </span>
         </a>
 
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -64,7 +63,6 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#demo"
@@ -102,7 +100,7 @@ export function Navbar() {
           style={{
             background: isDark ? "rgba(3,1,10,0.98)" : "rgba(255,255,255,0.98)",
             borderColor: "var(--border)",
-            backdropFilter: "blur(20px)",
+            backdropFilter: "blur(24px)",
           }}
         >
           {navLinks.map((link) => (

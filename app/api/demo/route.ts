@@ -40,10 +40,7 @@ Role:      ${role}
 Team Size: ${teamSize}
 ${useCase ? `\nUse Case:\n${useCase}` : ""}
 
-In the meantime, feel free to explore our documentation
-at docs.nexus.ai or start your free trial at app.nexus.ai.
-
-Looking forward to showing you what Nexus can do.
+Looking forward to showing you what ${siteConfig.name} can do.
 
 The ${siteConfig.name} Team
     `
@@ -65,7 +62,7 @@ The ${siteConfig.name} Team
         body: JSON.stringify({
           from: `${siteConfig.name} <${siteConfig.fromEmail}>`,
           to: email,
-          subject: `Your ${siteConfig.name} demo is confirmed — we'll be in touch shortly`,
+          subject: `Your ${siteConfig.name} demo is confirmed`,
           text: prospectEmail,
         }),
       }),

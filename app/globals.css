@@ -17,7 +17,6 @@
   --glow-accent: rgba(6,182,212,0.3);
 }
 
-/* ── MIDNIGHT LUXURY ── */
 .theme-midnight {
   --background: #080608;
   --foreground: #f5f0e8;
@@ -34,7 +33,6 @@
   --glow-accent: rgba(212,175,55,0.25);
 }
 
-/* ── CARBON TECH ── */
 .theme-carbon {
   --background: #0a0e12;
   --foreground: #e8f4f8;
@@ -51,7 +49,6 @@
   --glow-accent: rgba(34,211,238,0.25);
 }
 
-/* ── OBSIDIAN ── */
 .theme-obsidian {
   --background: #060408;
   --foreground: #f0ecff;
@@ -68,7 +65,6 @@
   --glow-accent: rgba(192,132,252,0.25);
 }
 
-/* ── PURE MINIMAL ── */
 .theme-minimal {
   --background: #ffffff;
   --foreground: #080808;
@@ -85,7 +81,6 @@
   --glow-accent: rgba(8,8,8,0.05);
 }
 
-/* ── ARCTIC ── */
 .theme-arctic {
   --background: #f0f8ff;
   --foreground: #0a1628;
@@ -102,7 +97,6 @@
   --glow-accent: rgba(14,165,233,0.1);
 }
 
-/* ── IVORY TECH ── */
 .theme-ivory {
   --background: #faf9f7;
   --foreground: #1a1814;
@@ -119,7 +113,6 @@
   --glow-accent: rgba(124,58,237,0.08);
 }
 
-/* ── ROSE GOLD ── */
 .theme-rosegold {
   --background: #fdf8f6;
   --foreground: #1a0e0a;
@@ -136,7 +129,11 @@
   --glow-accent: rgba(212,120,90,0.08);
 }
 
-*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html { scroll-behavior: smooth; }
 
@@ -149,6 +146,7 @@ body {
   overflow-x: hidden;
 }
 
+/* ── GLOBAL CENTERING ── */
 section {
   width: 100%;
   display: flex;
@@ -165,6 +163,12 @@ section > div {
   padding-right: 1.5rem;
 }
 
+section > div.absolute {
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 footer {
   width: 100%;
 }
@@ -178,7 +182,7 @@ footer > div {
   padding-right: 1.5rem;
 }
 
-/* Gradient mesh animation */
+/* ── ANIMATIONS ── */
 @keyframes meshMove {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33% { transform: translate(30px, -30px) scale(1.05); }
@@ -205,7 +209,7 @@ footer > div {
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 
-/* Glassmorphism */
+/* ── GLASSMORPHISM ── */
 .glass {
   background: rgba(255,255,255,0.04);
   backdrop-filter: blur(20px);
