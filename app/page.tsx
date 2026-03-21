@@ -11,6 +11,7 @@ import { Testimonials } from "@/components/testimonials"
 import { FAQ } from "@/components/faq"
 import { CTA } from "@/components/cta"
 import { Demo } from "@/components/demo"
+import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <FAQ />
         <CTA />
         <Demo />
+        <Contact />
         <Footer />
       </main>
       <ThemeSwitcher />
